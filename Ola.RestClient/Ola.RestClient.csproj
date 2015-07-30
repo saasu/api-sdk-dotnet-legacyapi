@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2AEED52B-0718-4792-94C1-00F37F71E49F}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Netaccounts.Ola.RestClient</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Ola.RestClient</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>
+    </DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CI|AnyCPU'">
+    <OutputPath>bin\CI\</OutputPath>
+    <BaseAddress>285212672</BaseAddress>
+    <WarningLevel>1</WarningLevel>
+    <FileAlignment>4096</FileAlignment>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\Staging\</OutputPath>
+    <BaseAddress>285212672</BaseAddress>
+    <WarningLevel>1</WarningLevel>
+    <FileAlignment>4096</FileAlignment>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ContactType.cs" />
+    <Compile Include="Dto\AccountType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\Activity\ActivityDto.cs" />
+    <Compile Include="Dto\Activity\ActivityResponseDto.cs" />
+    <Compile Include="Dto\AddressDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\BankAccountDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\BankAccountResponseDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\CCPaymentDto.cs" />
+    <Compile Include="Dto\CheckoutDto.cs" />
+    <Compile Include="Dto\ContactCategoryDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\ContactCategoryResponseDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\ContactCategoryType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\ContactDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\ContactResponseDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\InvoiceType.cs" />
+    <Compile Include="Dto\CrudResponseDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\DeleteResultDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\EmailFormat.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\EmailMessageDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\EntityDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\Enums.cs" />
+    <Compile Include="Dto\ErrorInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\IDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\InsertUpdateResultDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\InventoryAdjustmentDto.cs" />
+    <Compile Include="Dto\InventoryAdjustmentItemDto.cs" />
+    <Compile Include="Dto\InventoryAdjustmentResponseDto.cs" />
+    <Compile Include="Dto\InventoryItemDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\InventoryItemResponseDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\InventoryTransferDto.cs" />
+    <Compile Include="Dto\InventoryTransferItemDto.cs" />
+    <Compile Include="Dto\InventoryTransferResponseDto.cs" />
+    <Compile Include="Dto\Inventory\ComboItemDto.cs" />
+    <Compile Include="Dto\Inventory\ComboItemResponseDto.cs" />
+    <Compile Include="Dto\InvoiceDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\InvoiceLayout.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\InvoicePaymentDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\InvoicePaymentItemDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\InvoicePaymentResponseDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\InvoiceResponseDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\InvoiceStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\ItemInvoiceItemDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\Journals\DebitCreditType.cs" />
+    <Compile Include="Dto\Journals\JournalDto.cs" />
+    <Compile Include="Dto\Journals\JournalItemDto.cs" />
+    <Compile Include="Dto\Journals\JournalResponseDto.cs" />
+    <Compile Include="Dto\QuickPaymentDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\ResponseDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\Salutation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\ServiceInvoiceItemDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\TaxCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\TradingTermsDto.cs" />
+    <Compile Include="Dto\TransactionCategoryDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\TransactionCategoryResponseDto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dto\TransactionDto.cs" />
+    <Compile Include="Dto\TransactionType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\RestException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Proxies\ActivityProxy.cs" />
+    <Compile Include="Proxies\BankAccountProxy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Proxies\ComboItemProxy.cs" />
+    <Compile Include="Proxies\ContactCategoryProxy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Proxies\ContactProxy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Proxies\CrudProxy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Proxies\IFinderProxy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Proxies\InstallerProxy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Proxies\InventoryAdjustmentProxy.cs" />
+    <Compile Include="Proxies\InventoryItemProxy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Proxies\InventoryTransferProxy.cs" />
+    <Compile Include="Proxies\InvoicePaymentProxy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Proxies\InvoiceProxy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Proxies\JournalProxy.cs" />
+    <Compile Include="Proxies\RestProxy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Proxies\TagProxy.cs" />
+    <Compile Include="Proxies\TransactionCategoryProxy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ResourceName.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\Activity\UpdateActivityTask.cs" />
+    <Compile Include="Tasks\CheckoutResult.cs" />
+    <Compile Include="Tasks\CheckoutTask.cs" />
+    <Compile Include="Tasks\EmailPdfInvoiceResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\EmailPdfInvoiceTask.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\IInsertTask.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\Activity\InsertActivityTask.cs" />
+    <Compile Include="Tasks\InsertBankAccountResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\InsertBankAccountTask.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\InsertComboItemResult.cs" />
+    <Compile Include="Tasks\InsertComboItemTask.cs" />
+    <Compile Include="Tasks\InsertContactCategoryResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\InsertContactCategoryTask.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\InsertContactResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\InsertContactTask.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\InsertInventoryAdjustmentResult.cs" />
+    <Compile Include="Tasks\InsertInventoryAdjustmentTask.cs" />
+    <Compile Include="Tasks\InsertInventoryItemResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\InsertInventoryItemTask.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\InsertInventoryTransferResult.cs" />
+    <Compile Include="Tasks\InsertInventoryTransferTask.cs" />
+    <Compile Include="Tasks\InsertInvoicePaymentResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\InsertInvoicePaymentTask.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\InsertInvoiceResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\InsertInvoiceTask.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\InsertResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\InsertTransactionCategoryResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\InsertTransactionCategoryTask.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\Inventory\BuildComboItemResult.cs" />
+    <Compile Include="Tasks\Inventory\BuildComboItemTask.cs" />
+    <Compile Include="Tasks\ITask.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\IUpdateTask.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\Journals\InsertJournalResult.cs" />
+    <Compile Include="Tasks\Journals\InsertJournalTask.cs" />
+    <Compile Include="Tasks\Journals\UpdateJournalTask.cs" />
+    <Compile Include="Tasks\Journals\UpdateJournalResult.cs" />
+    <Compile Include="Tasks\TaskResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\TasksResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\TasksRunner.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\TaskWrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\UpdateBankAccountResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\UpdateBankAccountTask.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\UpdateComboItemResult.cs" />
+    <Compile Include="Tasks\UpdateComboItemTask.cs" />
+    <Compile Include="Tasks\UpdateContactCategoryResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\UpdateContactCategoryTask.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\UpdateContactResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\UpdateContactTask.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\UpdateInventoryAdjustmentResult.cs" />
+    <Compile Include="Tasks\UpdateInventoryAdjustmentTask.cs" />
+    <Compile Include="Tasks\UpdateInventoryItemResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\UpdateInventoryItemTask.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\UpdateInventoryTransferResult.cs" />
+    <Compile Include="Tasks\UpdateInventoryTransferTask.cs" />
+    <Compile Include="Tasks\UpdateInvoicePaymentResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\UpdateInvoicePaymentTask.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\UpdateInvoiceResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\UpdateInvoiceTask.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\UpdateResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\UpdateTransactionCategoryResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tasks\UpdateTransactionCategoryTask.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\HttpUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\Util.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\XmlSerializationUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
