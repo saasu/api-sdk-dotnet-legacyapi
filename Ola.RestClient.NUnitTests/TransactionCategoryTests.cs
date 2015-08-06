@@ -163,8 +163,45 @@ namespace Ola.RestClient.NUnitTests
             AssertEqual(dto, fromOla);
         }
 
+        [Test]
+        public void TestInsertAndGetHeaderAccount()
+        {
+            TransactionCategoryDto dto = this.GetNewTransactionCategory(AccountType.Income, "For Testing Insert And Get Header");
+            dto.Level = Constants.AccountLevel.Header;
 
-		private TransactionCategoryDto GetNewTransactionCategory(string accountType, string accountName)
+            CrudProxy proxy = new TransactionCategoryProxy();
+            proxy.Insert(dto);
+
+            Assert.IsTrue(dto.Uid > 0, "Uid must be > 0 after insert.");
+
+            TransactionCategoryDto fromOla = (TransactionCategoryDto)proxy.GetByUid(dto.Uid);
+            AssertEqual(dto, fromOla);
+        }
+
+	    [Test]
+	    public void TestInsertAndGetDetailAccountWithHeaderAccountAssigned()
+	    {
+            //set up header account first.
+            TransactionCategoryDto dto = this.GetNewTransactionCategory(AccountType.Expense, "Header Account For Detail");
+            dto.Level = Constants.AccountLevel.Header;
+
+            CrudProxy proxy = new TransactionCategoryProxy();
+            proxy.Insert(dto);
+                        
+            Assert.IsTrue(dto.Uid > 0, "Uid must be > 0 after insert.");
+	        var headerAccountUid = dto.Uid; 
+
+            //set up a detail account with the above header account assigned to it.
+	        dto = GetNewTransactionCategory(AccountType.Expense, "Detail with Header");
+	        dto.Level = Constants.AccountLevel.Detail;
+	        dto.HeaderAccountUid = headerAccountUid; 
+            proxy.Insert(dto);
+            
+            TransactionCategoryDto fromOla = (TransactionCategoryDto)proxy.GetByUid(dto.Uid);
+            AssertEqual(dto, fromOla);
+        }
+
+        private TransactionCategoryDto GetNewTransactionCategory(string accountType, string accountName)
 		{
 			TransactionCategoryDto dto = new TransactionCategoryDto();
 			dto.Type = accountType;
@@ -178,11 +215,13 @@ namespace Ola.RestClient.NUnitTests
 		public static void AssertEqual(TransactionCategoryDto expected, TransactionCategoryDto actual)
 		{
 			Assert.AreEqual(expected.Uid, actual.Uid, "Different Uid.");
+		    Assert.AreEqual(expected.Level.ToLowerInvariant(), actual.Level.ToLowerInvariant(), "Different Account Level.");
 			Assert.AreEqual(expected.Type, actual.Type, "Different Type.");
 			Assert.AreEqual(expected.Name, actual.Name, "Different Name.");
 			Assert.AreEqual(expected.LedgerCode, actual.LedgerCode, "Different LedgerCode."); 
 			Assert.AreEqual(expected.DefaultTaxCode, actual.DefaultTaxCode, "Different DefaultTaxCode.");
 			Assert.AreEqual(expected.IsActive, actual.IsActive, "Different IsActive.");
+            Assert.AreEqual(expected.HeaderAccountUid, actual.HeaderAccountUid, "Different Header Account Uid.");
 		}
 	}
 }
