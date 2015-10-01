@@ -159,22 +159,24 @@ namespace Ola.RestClient.NUnitTests
         }
 
 		[Test]
-		public void FindJournalsByLastUpdatedBy()
+		public void FindJournalsByLastModifiedDate()
 		{
 			JournalProxy proxy = new JournalProxy();
 			JournalDto first = CreateJournalDto();
-			DateTime firstInsert = DateTime.UtcNow;
 			first.Date = DateTime.Parse("01-Jan-2010");
 			Thread.Sleep(5 * 1000);
 			proxy.Insert(first);
 
+			DateTime firstInsert = first.UtcLastModified;
+
 			Thread.Sleep(10 * 1000);
 
-			DateTime secondInsert = DateTime.UtcNow;
 			JournalDto second = CreateJournalDto();
 			second.Date = DateTime.Parse("01-Jan-2010");
 			Thread.Sleep(5 * 1000);
 			proxy.Insert(second);
+
+			DateTime secondInsert = second.UtcLastModified.AddSeconds(-1);
 
 			List<JournalDto> secondOnly = proxy.FindList<JournalDto>(JournalProxy.ResponseXPath, "UtcLastModifiedFrom", secondInsert.ToString("s"), "UtcLastModifiedTo", DateTime.UtcNow.AddMinutes(5).ToString("s"));
 			Assert.AreEqual(1, secondOnly.Count);
