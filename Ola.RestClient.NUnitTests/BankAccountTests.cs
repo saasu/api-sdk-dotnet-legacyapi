@@ -116,7 +116,7 @@ namespace Ola.RestClient.NUnitTests
 
 		private static void AssertEqual(BankAccountDto expected, BankAccountDto actual)
 		{
-			TransactionCategoryTests.AssertEqual(expected, actual);
+			TransactionCategoryTests.AssertEqual(expected, actual, false);
 			Assert.AreEqual(expected.DisplayName, actual.DisplayName, "Different display name.");
 			Assert.AreEqual(expected.BSB, actual.BSB, "Different BSB.");
 			Assert.AreEqual(expected.AccountNumber, actual.AccountNumber, "Different account number.");

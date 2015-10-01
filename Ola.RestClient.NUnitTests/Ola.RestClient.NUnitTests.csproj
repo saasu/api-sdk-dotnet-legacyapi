@@ -155,6 +155,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CheckoutTests.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="ContactStatementReportTests.cs" />
     <Compile Include="ContactTests.cs">
       <SubType>Code</SubType>
