@@ -27,7 +27,8 @@ namespace Ola.RestClient.NUnitTests
 			Assert.IsTrue(dto.Uid > 0, "Uid must be > 0 after insert.");
 
 			TransactionCategoryDto fromOla = (TransactionCategoryDto) proxy.GetByUid(dto.Uid);
-			AssertEqual(dto, fromOla);
+			AssertEqual(dto, fromOla, false);
+			Assert.AreEqual(fromOla.Level, Constants.AccountLevel.Detail);
 		}
 
 
@@ -45,7 +46,8 @@ namespace Ola.RestClient.NUnitTests
 			proxy.Update(dto);
 			
 			TransactionCategoryDto fromOla = (TransactionCategoryDto) proxy.GetByUid(dto.Uid);
-			AssertEqual(dto, fromOla);
+			AssertEqual(dto, fromOla, false);
+			Assert.AreEqual(fromOla.Level, Constants.AccountLevel.Detail);
 		}
 
 
@@ -143,7 +145,8 @@ namespace Ola.RestClient.NUnitTests
             Assert.IsTrue(dto.Uid > 0, "Uid must be > 0 after insert.");
 
             TransactionCategoryDto fromOla = (TransactionCategoryDto)proxy.GetByUid(dto.Uid);
-            AssertEqual(dto, fromOla);
+            AssertEqual(dto, fromOla, false);
+			Assert.AreEqual(fromOla.Level, Constants.AccountLevel.Detail);
         }
 
 
@@ -160,7 +163,8 @@ namespace Ola.RestClient.NUnitTests
             Assert.IsTrue(dto.Uid > 0, "Uid must be > 0 after insert.");
 
             TransactionCategoryDto fromOla = (TransactionCategoryDto)proxy.GetByUid(dto.Uid);
-            AssertEqual(dto, fromOla);
+            AssertEqual(dto, fromOla, false);
+			Assert.AreEqual(fromOla.Level, Constants.AccountLevel.Detail);
         }
 
         [Test]
@@ -168,6 +172,7 @@ namespace Ola.RestClient.NUnitTests
         {
             TransactionCategoryDto dto = this.GetNewTransactionCategory(AccountType.Income, "For Testing Insert And Get Header");
             dto.Level = Constants.AccountLevel.Header;
+			dto.DefaultTaxCode = null;
 
             CrudProxy proxy = new TransactionCategoryProxy();
             proxy.Insert(dto);
@@ -184,6 +189,7 @@ namespace Ola.RestClient.NUnitTests
             //set up header account first.
             TransactionCategoryDto dto = this.GetNewTransactionCategory(AccountType.Expense, "Header Account For Detail");
             dto.Level = Constants.AccountLevel.Header;
+			dto.DefaultTaxCode = null;
 
             CrudProxy proxy = new TransactionCategoryProxy();
             proxy.Insert(dto);
@@ -212,10 +218,13 @@ namespace Ola.RestClient.NUnitTests
 		}
 		
 
-		public static void AssertEqual(TransactionCategoryDto expected, TransactionCategoryDto actual)
+		public static void AssertEqual(TransactionCategoryDto expected, TransactionCategoryDto actual, bool checkLevel = true)
 		{
 			Assert.AreEqual(expected.Uid, actual.Uid, "Different Uid.");
-		    Assert.AreEqual(expected.Level.ToLowerInvariant(), actual.Level.ToLowerInvariant(), "Different Account Level.");
+			if (checkLevel)
+			{
+				Assert.AreEqual(expected.Level.ToLowerInvariant(), actual.Level.ToLowerInvariant(), "Different Account Level.");
+			}
 			Assert.AreEqual(expected.Type, actual.Type, "Different Type.");
 			Assert.AreEqual(expected.Name, actual.Name, "Different Name.");
 			Assert.AreEqual(expected.LedgerCode, actual.LedgerCode, "Different LedgerCode."); 
