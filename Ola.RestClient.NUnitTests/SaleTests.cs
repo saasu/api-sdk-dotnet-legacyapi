@@ -516,7 +516,7 @@ namespace Ola.RestClient.NUnitTests
 
 			Assert.IsNotNull(savedDto.InvoiceNumber);
 
-			Assert.AreEqual(savedDto.InvoiceNumber, alphaComponent + (numericalComponentDto1 + 2).ToString());
+			Assert.AreEqual(savedDto.InvoiceNumber, alphaComponent + (numericalComponentDto1 + 3).ToString());
 		}
 
 		private int? GetNumericalComponentOfInvoiceNumber(string invoiceNumber, out string alphaComponent)

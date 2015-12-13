@@ -297,7 +297,7 @@ namespace Ola.RestClient.NUnitTests
 
 			Assert.IsNotNull(savedDto.PurchaseOrderNumber);
 
-			Assert.AreEqual(savedDto.PurchaseOrderNumber, alphaComponent + (numericalComponentDto1 + 2).ToString());
+			Assert.AreEqual(savedDto.PurchaseOrderNumber, alphaComponent + (numericalComponentDto1 + 3).ToString());
 		}
 
 		private int? GetNumericalComponentOfPurchaseNumber(string PurchaseOrderNumber, out string alphaComponent)
