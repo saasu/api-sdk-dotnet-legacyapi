@@ -85,7 +85,12 @@ namespace Ola.RestClient.NUnitTests
 					expectedValue.GetType().IsEnum)
 				{
 					Console.WriteLine(name + ": " + expectedValue + " to " + actualValue);
-					Assert.AreEqual(expectedValue, actualValue, "Property {0}", name);
+
+                    if (expectedValue.GetType() == typeof(DateTime))
+                    {
+                        AssertDatetimesEqualWithVariance((DateTime)expectedValue, (DateTime)actualValue);
+                    }
+                    Assert.AreEqual(expectedValue, actualValue, "Property {0}", name);
 					return;
 				}
 				else
@@ -94,5 +99,24 @@ namespace Ola.RestClient.NUnitTests
 				}
 			}
 		}
-	}
+
+        public static bool AssertDatetimesEqualWithVariance(DateTime dateToVary, DateTime dateToNotTouch)
+        {
+            var variance = System.Configuration.ConfigurationManager.AppSettings["TestingDateTimeVariance"];
+
+            Int16 varianceInt = 0;
+
+            Int16.TryParse(variance, out varianceInt);
+
+            if (varianceInt == 0)
+            {
+                return dateToVary == dateToNotTouch;
+            }
+
+            var minDate = dateToVary.AddSeconds(-varianceInt);
+            var maxDate = dateToVary.AddSeconds(varianceInt);
+
+            return dateToNotTouch > minDate && dateToNotTouch < maxDate;
+        }
+    }
 }
